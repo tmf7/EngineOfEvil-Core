@@ -56,12 +56,13 @@ bool eoeWindow::Init() {
 	SDL_GL_SetSwapInterval(1);					// vsync, if available
 
 
-	// Init GLEW
-	// Apparently, this is needed for Apple. Thanks to Ross Vander for letting me know
-//	#ifndef __APPLE__
-//	glewExperimental = GL_TRUE;
-//	glewInit();
-//	#endif
+	#ifndef __APPLE__
+	glewExperimental = GL_TRUE;
+	if(glewInit() != GLEW_OK) {
+		errorLog.ErrorPopupWindow("GLEW failed to initialize.");
+		return false;
+	}
+	#endif
 
 	isOpen = true;
 	return true;

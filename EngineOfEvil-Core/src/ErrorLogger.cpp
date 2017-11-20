@@ -6,7 +6,7 @@ eoeErrorLogger errorLog;
 // eoeErrorLogger::eoeErrorLogger
 //------------------
 eoeErrorLogger::eoeErrorLogger()
-	: logFilepath("../Logs/EngineOfEvilCore(") {
+	: logFilepath("EngineOfEvilCore(") {
 	logFilepath += __DATE__;
 	logFilepath += ").log";
 	logStream.open(logFilepath, std::ios::out | std::ios::app);

@@ -11,6 +11,12 @@
     <Filter Include="Core\Utilities">
       <UniqueIdentifier>{f9c853d6-8d4e-4349-a63f-4bd6b26e917f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Input">
+      <UniqueIdentifier>{98dd404d-9f61-410d-a663-0865d65c1f8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{28b21386-7f57-497c-ba86-5b3133bd6f6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -22,6 +28,18 @@
     <ClCompile Include="src\Window.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Vector.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Core\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineOfEvil.cpp">
+      <Filter>Core\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Matrix.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ErrorLogger.h">
@@ -29,6 +47,21 @@
     </ClInclude>
     <ClInclude Include="src\Window.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vector.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Core\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EngineOfEvil.h">
+      <Filter>Core\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Matrix.h">
+      <Filter>Core\Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

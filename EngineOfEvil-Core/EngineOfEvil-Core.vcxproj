@@ -19,12 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\EngineOfEvil.cpp" />
     <ClCompile Include="src\ErrorLogger.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Matrix.cpp" />
+    <ClCompile Include="src\Vector.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\EngineOfEvil.h" />
     <ClInclude Include="src\ErrorLogger.h" />
+    <ClInclude Include="src\Input.h" />
+    <ClInclude Include="src\Math.h" />
+    <ClInclude Include="src\Matrix.h" />
+    <ClInclude Include="src\Vector.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -97,7 +106,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)bin;$(SolutionDir)Dependencies\GLEW\lib;$(SolutionDir)Dependencies\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,7 +131,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)bin;$(SolutionDir)Dependencies\GLEW\lib;$(SolutionDir)Dependencies\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

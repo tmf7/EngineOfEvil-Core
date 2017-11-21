@@ -25,7 +25,7 @@ eoeWindow::~eoeWindow() {
 //------------------------
 bool eoeWindow::Init() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		errorLog.ErrorPopupWindow("SDL Failed to Initialize.");
+		EVIL_ERROR_LOG.ErrorPopupWindow("SDL Failed to Initialize.");
 		return false;
 	}
 
@@ -44,13 +44,13 @@ bool eoeWindow::Init() {
 	if (window == nullptr) {
 		std::string message("Window failed to initialize: ");
 		message += title;
-		errorLog.ErrorPopupWindow(message.c_str());
+		EVIL_ERROR_LOG.ErrorPopupWindow(message.c_str());
 		return false;
 	}
 
 	context = SDL_GL_CreateContext(window);
 	if (context == nullptr) {
-		errorLog.ErrorPopupWindow("OpenGL context creation failed.");
+		EVIL_ERROR_LOG.ErrorPopupWindow("OpenGL context creation failed.");
 		return false;
 	}
 	SDL_GL_SetSwapInterval(1);					// vsync, if available
@@ -59,7 +59,7 @@ bool eoeWindow::Init() {
 	#ifndef __APPLE__
 	glewExperimental = GL_TRUE;
 	if(glewInit() != GLEW_OK) {
-		errorLog.ErrorPopupWindow("GLEW failed to initialize.");
+		EVIL_ERROR_LOG.ErrorPopupWindow("GLEW failed to initialize.");
 		return false;
 	}
 	#endif

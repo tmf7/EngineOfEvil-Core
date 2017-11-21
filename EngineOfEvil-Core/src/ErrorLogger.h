@@ -1,9 +1,12 @@
 #ifndef EOECORE_ERROR_LOGGER
 #define EOECORE_ERROR_LOGGER
 
+#include <memory>
 #include <string>
 #include <fstream>
 #include <SDL.h>
+
+#define EVIL_ERROR_LOG (eoeErrorLogger::errorLog)
 
 //------------------------------------------
 //			eoeErrorLogger
@@ -13,21 +16,34 @@
 //-------------------------------------------
 class eoeErrorLogger {
 public:
-				
-									eoeErrorLogger();							
-								   ~eoeErrorLogger();
+									
 
+	bool							Init();
 	void							ErrorPopupWindow(const char * message);
 	void							LogError(const char * message, const char * sourceFilepath, int lineOfCode);
 	void							CheckSDLError(const char * sourceFilepath, int lineOfCode);
 
 private:
 
+									eoeErrorLogger();
+								   ~eoeErrorLogger();
+
+									eoeErrorLogger(const eoeErrorLogger & other) = delete;
+									eoeErrorLogger(eoeErrorLogger && other) = delete;
+
+	eoeErrorLogger &				operator=(const eoeErrorLogger & other) = delete;
+	eoeErrorLogger					operator=(eoeErrorLogger && other) = delete;
+
+public:
+
+	static eoeErrorLogger			errorLog;
+
+private:
+
 	std::ofstream					logStream;
 	std::string						logFilepath;
-};
 
-extern eoeErrorLogger errorLog;
+};
 
 //--------------------
 // VerifyWrite (global)

@@ -1,20 +1,12 @@
 #include "ErrorLogger.h"
 
-eoeErrorLogger errorLog;
+eoeErrorLogger eoeErrorLogger::errorLog;
 
 //-------------------
 // eoeErrorLogger::eoeErrorLogger
 //------------------
 eoeErrorLogger::eoeErrorLogger()
 	: logFilepath("EngineOfEvilCore(") {
-	logFilepath += __DATE__;
-	logFilepath += ").log";
-	logStream.open(logFilepath, std::ios::out | std::ios::app);
-
-	if (!VerifyWrite(logStream))
-		ErrorPopupWindow("Failed to initialize error output log.");
-
-	LogError("------------------------------STARTING RUN------------------------------", __FILE__, __LINE__);
 }
 
 //-------------------
@@ -25,6 +17,23 @@ eoeErrorLogger::~eoeErrorLogger() {
 		LogError("------------------------------ENDING RUN------------------------------", __FILE__, __LINE__);
 		logStream.close();
 	}
+}
+
+//-------------------
+// eoeErrorLogger::Init
+//------------------
+bool eoeErrorLogger::Init() {
+	logFilepath += __DATE__;
+	logFilepath += ").log";
+	logStream.open(logFilepath, std::ios::out | std::ios::app);
+
+	if (!VerifyWrite(logStream)) {
+		ErrorPopupWindow("Failed to initialize error output log.");
+		return false;
+	}
+
+	LogError("------------------------------STARTING RUN------------------------------", __FILE__, __LINE__);
+	return true;
 }
 
 //--------------------

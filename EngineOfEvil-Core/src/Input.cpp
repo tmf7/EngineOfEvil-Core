@@ -27,7 +27,7 @@ void eoeInput::Init() {
 	} catch (const std::bad_alloc & error) {
 		EVIL_ERROR_LOG.ErrorPopupWindow("Input failed to initialize.");
 		EVIL_ERROR_LOG.LogError(error.what(), __FILE__, __LINE__);
-		throw error;
+		throw;
 	}
 
 	memcpy(keys, keyboard, sizeof(keyboard[0]) * numKeys);

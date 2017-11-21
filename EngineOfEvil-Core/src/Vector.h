@@ -657,6 +657,9 @@ public:
 	eoeVec4 &			operator*=(const eoeVec4 &a);
 	eoeVec4 &			operator*=(const float a);	
 
+	const float *		ToFloatPtr() const;
+	float *				ToFloatPtr();
+
 	bool				Compare(const eoeVec4 &a) const;
 	bool				Compare(const eoeVec4 &a, const float epsilon) const;
 	bool				operator==(const eoeVec4 &a) const;
@@ -903,6 +906,22 @@ inline eoeVec4 & eoeVec4::operator*=(const float a) {
 	z *= a;
 	w *= a;
 	return *this;
+}
+
+//-----------------------------------
+// eoeVec4::ToFloatPtr
+// returns a pointer to the first element of the matrix
+//-----------------------------------
+const float * eoeVec4::ToFloatPtr() const {
+	return &x;
+}
+
+//-----------------------------------
+// eoeMat4::ToFloatPtr
+// returns a pointer to the first element of the matrix
+//-----------------------------------
+float * eoeVec4::ToFloatPtr() {
+	return &x;
 }
 
 //-------------------------

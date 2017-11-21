@@ -17,8 +17,8 @@ public:
 	static void						OrthographicToIsometric(float & x, float & y);
 	static void						OrthographicToIsometric(int & x, int & y);
 	static float					GetAngle(float x, float y);
-	static float					RadiansToDegrees(float radians);
-	static float					DegreesToRadians(float degrees);
+	static float					ToDegrees(float radians);
+	static float					ToRadians(float degrees);
 
 public:
 	
@@ -97,7 +97,7 @@ inline float eoeMath::GetAngle(float x, float y) {
 		return 270.0f;
 	} else {
 		float tan = y / x;
-		angle = RadiansToDegrees(atanf(tan));
+		angle = ToDegrees(atanf(tan));
 		if (x < 0)
 			angle += 180.0f;
 	}
@@ -105,16 +105,16 @@ inline float eoeMath::GetAngle(float x, float y) {
 }
 
 //--------------------
-// eoeMath::RadiansToDegrees
+// eoeMath::ToDegrees
 //--------------------
-inline float eoeMath::RadiansToDegrees(float radians) {
+inline float eoeMath::ToDegrees(float radians) {
 	return (radians * RAD2DEG_CFACTOR);
 }
 
 //--------------------
-// eoeMath::DegreesToRadians
+// eoeMath::ToRadians
 //--------------------
-inline float eoeMath::DegreesToRadians(float degrees) {
+inline float eoeMath::ToRadians(float degrees) {
 	return (degrees * DEG2RAD_CFACTOR);
 }
 

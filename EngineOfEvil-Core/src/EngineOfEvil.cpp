@@ -6,9 +6,15 @@
 // returns false on failure, true on success
 //---------------------------
 bool InitEngineOfEvil() {
-	bool success = EVIL_ERROR_LOG.Init();
-	EVIL_INPUT.Init();
-	return success;
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) // SDL Failed to Initialize.
+		return false;
+
+	if (!EVIL_ERROR_LOG.Init())
+		return false;
+
+	EVIL_INPUT.Init();						// succeeds or crashes, but still logs the error
+
+	return true;
 }
 
 //---------------------------

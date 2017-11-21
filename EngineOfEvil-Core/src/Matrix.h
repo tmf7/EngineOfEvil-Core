@@ -5,7 +5,11 @@
 
 //-----------------------------------
 //			eoeMat4
-//	 4x4 column-major matrix
+//	 4x4 row-major matrix
+//  default ctor is all zeros
+// TODO: model matrix (conversion from modelspace to worldspace) == (translation * rotation * scale), then  * modelCoordinate to get the new worldspace coordinate
+// TODO: camera matrix (translation * rotation) ?
+// TODO: projection (ortho/perspective) done, but needs double checking
 //-----------------------------------
 class eoeMat4 {
 public:
@@ -20,7 +24,8 @@ public:
 	eoeMat4						operator*(const eoeMat4 &a) const;
 	eoeMat4 &					operator*=(const eoeMat4 &a);
 
-	float *						GetData();
+	const float *				ToFloatPtr() const;
+	float *						ToFloatPtr();
 
 	static eoeMat4				GetIdentity();
 	static eoeMat4				GetPerspective(float fov, float aspectRatio, float near, float far);
@@ -29,5 +34,8 @@ public:
 	static eoeMat4				GetTranslation(const eoeVec3 & translation);
 	static eoeMat4				GetScale(const eoeVec3 & scale);
 };
+
+extern eoeMat4 mat4_identity;
+extern eoeMat4 mat4_zero;
 
 #endif /* EOECORE_MATRIX_H */

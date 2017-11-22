@@ -16,26 +16,26 @@ eoeVec3 vec3_zero		( 0.0f,  0.0f,  0.0f );
 eoeVec3 vec3_one		( 1.0f,  1.0f,  1.0f );
 
 eoeVec3	eoeQuat::Rotate(const eoeVec3 & rotationAxis, float degrees, const eoeVec3 & toRotate) {
-	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::DegreesToRadians(degrees) * 0.5f);
-	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::DegreesToRadians(degrees) * 0.5f));
+	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::ToRadians(degrees) * 0.5f);
+	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::ToRadians(degrees) * 0.5f));
 	return rotation * toRotate;
 }
 
 
 eoeVec2	eoeQuat::Rotate(const eoeVec3 & rotationAxis, float degrees, const eoeVec2 & toRotate) {
-	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::DegreesToRadians(degrees) * 0.5f);
-	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::DegreesToRadians(degrees) * 0.5f));
+	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::ToRadians(degrees) * 0.5f);
+	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::ToRadians(degrees) * 0.5f));
 	return rotation * toRotate;
 }
 
 void eoeQuat::Rotate(const eoeVec3 & rotationAxis, float degrees, eoeVec3 & toRotate) {
-	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::DegreesToRadians(degrees) * 0.5f);
-	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::DegreesToRadians(degrees) * 0.5f));
+	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::ToRadians(degrees) * 0.5f);
+	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::ToRadians(degrees) * 0.5f));
 	toRotate = rotation * toRotate;
 }
 
 void eoeQuat::Rotate(const eoeVec3 & rotationAxis, float degrees, eoeVec2 & toRotate) {
-	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::DegreesToRadians(degrees) * 0.5f);
-	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::DegreesToRadians(degrees) * 0.5f));
+	const eoeVec3 quatXYZ = rotationAxis * SDL_sinf(eoeMath::ToRadians(degrees) * 0.5f);
+	const eoeQuat rotation( quatXYZ.x, quatXYZ.y, quatXYZ.z, SDL_cosf(eoeMath::ToRadians(degrees) * 0.5f));
 	toRotate = rotation * toRotate;
 }

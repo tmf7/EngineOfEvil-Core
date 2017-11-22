@@ -912,15 +912,15 @@ inline eoeVec4 & eoeVec4::operator*=(const float a) {
 // eoeVec4::ToFloatPtr
 // returns a pointer to the first element of the matrix
 //-----------------------------------
-const float * eoeVec4::ToFloatPtr() const {
+inline const float * eoeVec4::ToFloatPtr() const {
 	return &x;
 }
 
 //-----------------------------------
-// eoeMat4::ToFloatPtr
+// eoeVec4::ToFloatPtr
 // returns a pointer to the first element of the matrix
 //-----------------------------------
-float * eoeVec4::ToFloatPtr() {
+inline float * eoeVec4::ToFloatPtr() {
 	return &x;
 }
 

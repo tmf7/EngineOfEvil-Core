@@ -9,12 +9,11 @@
 //  default ctor is all zeros
 // TODO: model matrix (conversion from modelspace to worldspace) == (translation * rotation * scale), then  * modelCoordinate to get the new worldspace coordinate
 // TODO: camera matrix (translation * rotation) ?
-// TODO: projection (ortho/perspective) done, but needs double checking
 //-----------------------------------
 class eoeMat4 {
 public:
 
-	eoeVec4						columns[4];
+	eoeVec4						matrix[4];
 
 								eoeMat4() = default;
 	explicit					eoeMat4(const float diagonal);
@@ -22,6 +21,7 @@ public:
 	eoeVec4 &					operator[](int column);
 	eoeVec4						operator[](int column) const;
 	eoeMat4						operator*(const eoeMat4 &a) const;
+	eoeVec4						operator*(const eoeVec4 &v) const;
 	eoeMat4 &					operator*=(const eoeMat4 &a);
 
 	const float *				ToFloatPtr() const;
